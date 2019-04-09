@@ -12,4 +12,4 @@ WORKDIR /publish
 COPY --from=build-env /publish /publish
 
 ENV ASPNETCORE_URLS=http://+:5000
-ENTRYPOINT ["dotnet", "Pantokrator.Order.Api.dll"]
+ENTRYPOINT ["dotnet", "Pantokrator.Gateway.dll"]
