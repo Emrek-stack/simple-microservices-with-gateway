@@ -32,6 +32,7 @@ namespace Pantokrator.Gateway
             {
                 app.UseDeveloperExceptionPage();
             }
+       
 
             await app.UseOcelot();
         }

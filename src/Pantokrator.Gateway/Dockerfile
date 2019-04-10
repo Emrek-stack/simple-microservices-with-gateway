@@ -11,5 +11,5 @@ FROM microsoft/dotnet:2.2-aspnetcore-runtime-alpine
 WORKDIR /publish
 COPY --from=build-env /publish /publish
 
-ENV ASPNETCORE_URLS=http://+:5000
+# ENV ASPNETCORE_URLS=http://+:80
 ENTRYPOINT ["dotnet", "Pantokrator.Gateway.dll"]

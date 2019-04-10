@@ -9,6 +9,7 @@ RUN dotnet publish ./src/Pantokrator.Order.Api/Pantokrator.Order.Api.csproj -c R
 
 FROM microsoft/dotnet:2.2-aspnetcore-runtime-alpine
 WORKDIR /publish
-COPY --from=build /publish /publish
+COPY --from=build-env /publish /publish
+# ENV ASPNETCORE_URLS=http://+:80
 
 ENTRYPOINT ["dotnet", "Pantokrator.Order.Api.dll"]

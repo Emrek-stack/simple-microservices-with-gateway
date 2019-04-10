@@ -1,0 +1,30 @@
+version: '3.4'
+
+services:
+  gateway:
+    image: gateway
+    build:
+      context: ./src/Pantokrator.Gateway
+      dockerfile: Dockerfile
+    environment:
+    - OrderingUrl=http://orderapi
+    ports:
+    - "5100:80"
+    links:
+    - orderapi
+    depends_on:
+    - orderapi
+
+  orderapi:
+    image: orderapi   
+    build:
+      context: ./src/Pantokrator.Order.Api
+      dockerfile: Dockerfile
+    expose:
+    - "80"
+    ports:
+    - "5200:80"
+    environment:
+    - HOSTNAME=orderapi
+    - ASPNETCORE_ENVIRONMENT=Production
+    - ASPNETCORE_URLS=http://0.0.0.0:80
