@@ -14,6 +14,7 @@ services:
     - "5100:80"
     depends_on:
     - orderapi
+    - consul
 
   orderapi:
     image: orderapi   
@@ -33,3 +34,6 @@ services:
 
   redis.data:
     image: redis
+
+  consul:
+    image: consul

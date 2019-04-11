@@ -3,6 +3,9 @@
     {
       "DownstreamPathTemplate": "/api/values",
       "DownstreamScheme": "http",
+      "DownstreamHeaderTransform": {
+        "TestHeader": "Test"
+      },
       "DownstreamHostAndPorts": [
         {
           "Host": "orderapi",
