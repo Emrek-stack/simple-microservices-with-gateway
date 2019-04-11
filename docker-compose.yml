@@ -27,6 +27,7 @@ services:
     - "5200:80"
     depends_on:
     - redis.data
+    - rabbitmq
     environment:
     - HOSTNAME=orderapi
     - ASPNETCORE_ENVIRONMENT=Production
@@ -36,4 +37,18 @@ services:
     image: redis
 
   consul:
-    image: consul
+    image: consul  
+
+  rabbitmq:
+    image: rabbitmq:3-management  
+    volumes:
+      - rabbitmq_data
+    environment:
+      - RABBITMQ_ERLANG_COOKIE='secret_cookie'
+    hostname: rabbit_node_1
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+
+    
+    
