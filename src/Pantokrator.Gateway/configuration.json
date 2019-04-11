@@ -9,7 +9,19 @@
           "Port": 80
         }
       ],
-      "UpstreamPathTemplate": "/order",
+      "UpstreamPathTemplate": "/api/v1/order",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/values/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "orderapi",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/v2/order/{id}",
       "UpstreamHttpMethod": [ "Get" ]
     }
   ],

@@ -24,7 +24,12 @@ services:
     - "80"
     ports:
     - "5200:80"
+    depends_on:
+    - redis.data
     environment:
     - HOSTNAME=orderapi
     - ASPNETCORE_ENVIRONMENT=Production
     - ASPNETCORE_URLS=http://0.0.0.0:80
+
+  redis.data:
+    image: redis
