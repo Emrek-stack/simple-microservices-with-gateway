@@ -8,10 +8,10 @@ services:
       dockerfile: Dockerfile
     environment:
     - OrderingUrl=http://orderapi
+    - ASPNETCORE_ENVIRONMENT=Production
+    - ASPNETCORE_URLS=http://0.0.0.0:80
     ports:
     - "5100:80"
-    links:
-    - orderapi
     depends_on:
     - orderapi
 
